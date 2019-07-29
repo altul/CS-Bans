@@ -87,15 +87,15 @@ class InstallForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
-			'db_host'		=> 'Хост',
-			'db_db'			=> 'База данных',
-			'db_user'		=> 'Пользователь',
-			'db_pass'		=> 'Пароль',
-			'db_prefix'		=> 'Префикс',
-			'login'			=> 'Логин',
-			'password'		=> 'Пароль',
+			'db_host'		=> 'Host',
+			'db_db'			=> 'Database',
+			'db_user'		=> 'User',
+			'db_pass'		=> 'Password',
+			'db_prefix'		=> 'Prefix',
+			'login'			=> 'Login',
+			'password'		=> 'Password',
 			'email'			=> 'Email',
-			'license'		=> 'Условия лицензионного соглашения',
+			'license'		=> 'License Terms',
 		);
 	}
 
