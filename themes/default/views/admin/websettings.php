@@ -1,6 +1,6 @@
 <?php
 /**
- * Вьюшка настроек системы
+ * System Settings View
  */
 
 /**
@@ -12,17 +12,17 @@
  * @license http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru  «Attribution-NonCommercial-ShareAlike»
  */
 
-$page = 'Настройки системы';
-$this->pageTitle = Yii::app()->name . ' :: Админцентр - ' . $page;
+$page = 'System settings';
+$this->pageTitle = Yii::app()->name . ' :: Admin center - ' . $page;
 
 $this->breadcrumbs=array(
-	'Админцентр' => array('/admin/index'),
+	'Admin center' => array('/admin/index'),
 	$page,
 );
 
 $this->renderPartial('/admin/mainmenu', array('active' =>'site', 'activebtn' => 'websettings'));
 ?>
-<h2>Настройки системы</h2>
+<h2>System settings</h2>
 <?php
 $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'id'=>'settings-form',
@@ -30,9 +30,9 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	'enableAjaxValidation'=>true,
 ));
 ?>
-<p class="note">Поля, отмеченные <span class="required">*</span> обязательны к заполнению.</p>
+<p class="note">Fields marked <span class="required">*</span> required.</p>
 <fieldset>
-	<legend>Система</legend>
+	<legend>System</legend>
 	<?php echo $form->errorSummary($model); ?>
 	<?php //echo $form->dropDownListRow($model, 'default_lang', array('ru' => 'Русский', 'en' => 'English')); ?>
 	<?php //echo $form->checkBoxRow($model, 'use_capture', array('1' => 'Да', '0' => 'Нет')); ?>
@@ -41,33 +41,33 @@ $form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	<?php echo $form->textFieldRow($model, 'cookie'); ?>
 	<?php echo $form->textFieldRow($model, 'max_offences'); ?>
 	<?php echo $form->textFieldRow($model, 'max_offences_reason'); ?>
-	<legend>Вид</legend>
+	<legend>View</legend>
 	<?php //echo $form->dropDownListRow($model, 'banner', array('---' => '---', 'amxbans.png' => 'amxbans.png')); ?>
 	<?php //echo $form->textFieldRow($model, 'banner_url'); ?>
 	<?php echo $form->dropDownListRow($model, 'design', $themes); ?>
 	<?php echo $form->dropDownListRow($model, 'start_page', array(
-		'/site/index' => 'Главная',
-		'/bans/index' => 'Банлист',
-		'/serverinfo/index' => 'Серверы',
-		'/amxadmins/index' => 'Админы',
+		'/site/index' => 'Home',
+		'/bans/index' => 'Banlist',
+		'/serverinfo/index' => 'Servers',
+		'/amxadmins/index' => 'Admins',
 	));
 	?>
-	<legend>Комментарии</legend>
+	<legend>Comments</legend>
 	<?php echo $form->checkBoxRow($model, 'use_comment'); ?>
 	<?php echo $form->checkBoxRow($model, 'comment_all'); ?>
-	<legend>Файлы</legend>
+	<legend>Files</legend>
 	<?php echo $form->checkBoxRow($model, 'use_demo'); ?>
 	<?php echo $form->checkBoxRow($model, 'demo_all'); ?>
 	<?php echo $form->textFieldRow($model, 'file_type'); ?>
-	<legend>Банлист</legend>
+	<legend>Banlist</legend>
 	<?php echo $form->textFieldRow($model, 'bans_per_page'); ?>
 	<?php echo $form->checkBoxRow($model, 'show_comment_count'); ?>
 	<?php echo $form->checkBoxRow($model, 'show_demo_count'); ?>
 	<?php echo $form->checkBoxRow($model, 'show_kick_count'); ?>
 </fieldset>
 <div class="form-actions">
-    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>'Сохранить')); ?>
-    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'reset', 'label'=>'Сбросить')); ?>
+    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit', 'type'=>'primary', 'label'=>'Save')); ?>
+    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'reset', 'label'=>'Reset')); ?>
 </div>
 
 <?php $this->endWidget(); ?>
