@@ -1,6 +1,6 @@
 <?php
 /**
- * Вьюшка причин банов
+ * View ban reasons
  */
 
 /**
@@ -12,19 +12,19 @@
  * @license http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru  «Attribution-NonCommercial-ShareAlike»
  */
 
-$page = 'Причины банов';
+$page = 'Causes of Bans';
 $this->pageTitle = Yii::app()->name . ' - ' . $page;
 
 $this->breadcrumbs=array(
-	'Админцентр'=>array('/admin/index'),
+	'Admin center'=>array('/admin/index'),
 	$page
 );
 
 $this->renderPartial('/admin/mainmenu', array('active' =>'server', 'activebtn' => 'servreasons'));
 
 $this->menu=array(
-	array('label'=>'Добавить группу причин','url'=>array('/reasonsSet/create')),
-	array('label'=>'Добавить причину','url'=>array('/reasons/create')),
+	array('label'=>'Add Reason Group','url'=>array('/reasonsSet/create')),
+	array('label'=>'Add Reason','url'=>array('/reasons/create')),
 );
 
 
@@ -45,15 +45,15 @@ function clearmodal()
 ?>
 
 
-<h2>Управление причинами банов</h2>
+<h2>Manage Ban Reasons</h2>
 
-<h4>Группы причин</h4>
-<small class="text-success">Кликнуть на группе для редактирования</small>
+<h4>Reason groups</h4>
+<small class="text-success">Click on a group to edit.</small>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'type' => 'bordered condensed striped',
 	'id'=>'reasonsset-grid',
 	'dataProvider'=>$reasonsset,
-	//'summaryText' => 'Показано с {start} по {end} причин из {count}. Страница {page} из {pages}',
+	//'summaryText' => 'Showing {start} to {end} reasons from {count}. Page {page} of {pages}',
 	'template' => '{pager} {items}',
 	'pager' => array(
 		'class'=>'bootstrap.widgets.TbPager',
@@ -86,13 +86,13 @@ function clearmodal()
 )); ?>
 
 
-<h4>Причины</h4>
+<h4>The reasons</h4>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'type' => 'bordered condensed striped',
 	'id'=>'reasons-grid',
 	'dataProvider'=>$reasons,
 	'template' => '{pager} {items}',
-	//'summaryText' => 'Показано с {start} по {end} причин из {count}. Страница {page} из {pages}',
+	//'summaryText' => 'Showing {start} to {end} reasons from {count}. Page {page} of {pages}',
 	'pager' => array(
 		'class'=>'bootstrap.widgets.TbPager',
 		'displayFirstAndLast' => true,
@@ -130,7 +130,7 @@ function clearmodal()
 
 <div class="modal-footer">
     <?php $this->widget('bootstrap.widgets.TbButton', array(
-        'label'=>'Закрыть',
+        'label'=>'Close',
         'url'=>'#',
         'htmlOptions'=>array(
 			//'data-dismiss'=>'modal',
