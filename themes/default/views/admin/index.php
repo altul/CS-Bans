@@ -1,6 +1,6 @@
 <?php
 /**
- * Вьюшка главной страницы админцентра
+ * View of the main page of the admin center
  */
 
 /**
@@ -12,7 +12,7 @@
  * @license http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru  «Attribution-NonCommercial-ShareAlike»
  */
 
-$page = 'Админцентр';
+$page = 'Admin center';
 $this->pageTitle = Yii::app()->name . ' - ' . $page;
 
 $this->breadcrumbs=array(
@@ -24,11 +24,11 @@ $.post('".$this->createUrl('version')."', {'version': 1}, function(data){
 	$('#version').html(data);
 });
 $('.bdaction').click(function(){
-	if(!confirm('Вы подтверждаете свои действия?'))
+	if(!confirm('Do you confirm your actions?'))
 	{
 		return false;
 	}
-	if(this.id == 'truncatebans' && !confirm('Все баны будут удалены. Вы точно уверены?'))
+	if(this.id == 'truncatebans' && !confirm('All bans will be deleted. Are you sure?'))
 	{
 		return false;
 	}
@@ -40,19 +40,19 @@ $('.bdaction').click(function(){
 $this->renderPartial('/admin/mainmenu', array('active' =>'main', 'activebtn' => 'admsystem'));
 $sysprefs = Prefs::sysprefs();
 ?>
-<h2>Информация о системе</h2>
+<h2>System Information</h2>
 <div class="container">
   <div class="row-fluid">
     <div class="span8">
 		<table class="table table-bordered table-condensed">
 			<tr>
 				<td class="info" colspan="2">
-					<b>Настройки сервера</b>
+					<b>Server settings</b>
 				</td>
 			</tr>
 			<tr>
 				<td style="width: 200px">
-					Версия сайта
+					Site version
 				</td>
 				<td id="version">
 					<?php echo Yii::app()->params['Version'] ?> <?php echo CHtml::image(Yii::app()->baseUrl . '/images/loading.gif'); ?>
@@ -71,7 +71,7 @@ $sysprefs = Prefs::sysprefs();
 			<?php endforeach; ?>
 			<tr>
 				<td class="info" colspan="2">
-					<b>PHP модули</b>
+					<b>PHP modules</b>
 				</td>
 			</tr>
 			<?php foreach($sysprefs['modules'] as $key => $val): ?>
@@ -90,14 +90,14 @@ $sysprefs = Prefs::sysprefs();
 		<table class="items table table-bordered table-condensed">
 			<thead>
 				<tr>
-					<th>Статистика</th>
+					<th>Statistics</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr class="odd">
 					<td>
 						<div class="pull-left muted">
-							<b>Размер базы данных</b>
+							<b>Database size</b>
 						</div>
 						<div class="pull-right">
 							<?php echo Prefs::db_size(); ?>
@@ -107,7 +107,7 @@ $sysprefs = Prefs::sysprefs();
 				<tr class="odd">
 					<td>
 						<div class="pull-left muted">
-							<b>Кол-во банов в базе</b>
+							<b>The number of bans in the database</b>
 						</div>
 						<div class="pull-right">
 							<?php echo $sysinfo['bancount']; ?>
@@ -117,7 +117,7 @@ $sysprefs = Prefs::sysprefs();
 				<tr class="odd">
 					<td>
 						<div class="pull-left muted">
-							<b>Активные баны</b>
+							<b>Active Bans</b>
 						</div>
 						<div class="pull-right">
 							<?php echo $sysinfo['bancount']; ?>
@@ -127,7 +127,7 @@ $sysprefs = Prefs::sysprefs();
 				<tr class="odd">
 					<td>
 						<div class="pull-left muted">
-							<b>Комментарии</b>
+							<b>Comments</b>
 						</div>
 						<div class="pull-right">
 							<?php echo $sysinfo['commentscount']; ?>
@@ -137,7 +137,7 @@ $sysprefs = Prefs::sysprefs();
 				<tr class="odd">
 					<td>
 						<div class="pull-left muted">
-							<b>Файлы</b>
+							<b>Files</b>
 						</div>
 						<div class="pull-right">
 							<?php echo $sysinfo['filescount']; ?>
@@ -150,25 +150,25 @@ $sysprefs = Prefs::sysprefs();
 		<table class="items table table-bordered table-condensed">
 			<thead>
 					<tr>
-						<th>Действия</th>
+						<th>Actions</th>
 					</tr>
 				</thead>
 			<tbody>
 				<tr class="odd">
 					<td>
-						<input type="button" class="btn btn-small btn-info bdaction span12" id="clearcache" value="Очистить кеш">
+						<input type="button" class="btn btn-small btn-info bdaction span12" id="clearcache" value="Clear cache">
 					</td>
 				</tr>
 				<tr class="odd">
 					<td>
-						<input type="button" class="btn btn-small btn-info bdaction span12" id="optimizedb" value="Оптимизация базы">
+						<input type="button" class="btn btn-small btn-info bdaction span12" id="optimizedb" value="Base optimization">
 					</td>
 				</tr>
 				<!--
 				<tr class="odd">
 					<td>
 						<div class="left muted">
-							<b>Оптимизация таблицы банов</b>
+							<b>Ban table optimization</b>
 						</div>
 						<div class="right">
 							<input type="button" class="btn btn-small btn-info bdaction" id="optimizebanstable" value="Ok">
@@ -178,7 +178,7 @@ $sysprefs = Prefs::sysprefs();
 				-->
 				<tr class="odd">
 					<td>
-						<input type="button" class="btn btn-small btn-info bdaction span12" id="truncatebans" value="Очистить банлист">
+					    <input type="button" class="btn btn-small btn-info bdaction span12" id="truncatebans" value="Clear banlist">
 					</td>
 				</tr>
 			</tbody>
