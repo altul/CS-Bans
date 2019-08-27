@@ -1,6 +1,6 @@
 <?php
 /**
- * Вьюшка просмотра деталей админа серверов
+ * View server admin details view
  */
 
 /**
@@ -12,20 +12,20 @@
  * @license http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru  «Attribution-NonCommercial-ShareAlike»
  */
 
-$this->pageTitle = Yii::app()->name . ' :: Админцентр - Редактировать админа';
+$this->pageTitle = Yii::app()->name . ' :: Admin Center - Edit admin';
 $this->breadcrumbs = array(
-	'Админцентр' => array('/admin/index'),
-	'AmxModX админы' => array('admin'),
-	'Админ ' . $model->nickname
+	'Admin Center' => array('/admin/index'),
+	'AmxModX Admins' => array('admin'),
+	'Admin ' . $model->nickname
 );
 $this->renderPartial('/admin/mainmenu', array('active' =>'server', 'activebtn' => 'servamxadmins'));
 
 $this->menu=array(
-	array('label'=>'Добавить AmxModX админа', 'url'=>array('create')),
-	array('label'=>'Управление AmxModX админами', 'url'=>array('admin')),
+	array('label'=>'Add AmxModX Admin', 'url'=>array('create')),
+	array('label'=>'Managing AmxModX Admins', 'url'=>array('admin')),
 );
 ?>
-<h2>Детали админа &laquo;<?php echo $model->nickname; ?>&raquo;</h2>
+<h2>Admin details &laquo;<?php echo $model->nickname; ?>&raquo;</h2>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView', array(
 	'data'=>$model,
@@ -41,7 +41,7 @@ $this->menu=array(
 		'icq',
 		array(
 			'name' => 'ashow',
-			'value' => $model->ashow == 1 ? 'Да' : 'Нет'
+			'value' => $model->ashow == 1 ? 'Yes' : 'Not'
 		),
 		array(
 			'name' => 'created',
@@ -50,7 +50,7 @@ $this->menu=array(
 		),
 		array(
 			'name' => 'expired',
-			'value' => $model->expired == 0 ? 'Навсегда' : date('d.m.Y H:i', $model->expired)
+			'value' => $model->expired == 0 ? 'For ever' : date('d.m.Y H:i', $model->expired)
 		),
 		'days',
 	),
