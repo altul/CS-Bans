@@ -1,6 +1,6 @@
 <?php
 /**
- * Управление AmxModX админами
+ * Managing AmxModX Admins
  */
 
 /**
@@ -12,20 +12,20 @@
  * @license http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru  «Attribution-NonCommercial-ShareAlike»
  */
 
-$this->pageTitle = Yii::app()->name . ' :: Админцентр - AmxModX админы';
+$this->pageTitle = Yii::app()->name . ' :: Admincenter - AmxModX Admins';
 $this->breadcrumbs = array(
-	'Админцентр' => array('/admin/index'),
-	'AmxModX админы'
+	'Admin center' => array('/admin/index'),
+	'AmxModX Admins'
 );
 
 $this->renderPartial('/admin/mainmenu', array('active' =>'server', 'activebtn' => 'servamxadmins'));
 
 $this->menu=array(
-	array('label'=>'Добавить AmxModX админа','url'=>array('create')),
+	array('label'=>'Add AmxModX Admin','url'=>array('create')),
 );
 ?>
 
-<h2>Управление AmxModX админами</h2>
+<h2>Managing AmxModX Admins</h2>
 
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'type' => 'bordered stripped',
@@ -33,7 +33,7 @@ $this->menu=array(
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'enableSorting' => FALSE,
-	'summaryText' => 'Показано с {start} по {end} админов из {count}. Страница {page} из {pages}',
+	'summaryText' => 'Displayed from {start} to {end} admins from {count}. Page {page} of {pages}',
 	'pager' => array(
 		'class'=>'bootstrap.widgets.TbPager',
 		'displayFirstAndLast' => true,
