@@ -1,6 +1,6 @@
 <?php
 /**
- * Вьюшка главной страницы админов серверов
+ * View of the main page of server admins
  */
 
 /**
@@ -12,7 +12,7 @@
  * @license http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru  «Attribution-NonCommercial-ShareAlike»
  */
 
-$page = 'Администраторы';
+$page = 'Administrators';
 
 $this->pageTitle = Yii::app()->name . ' - ' . $page;
 
@@ -37,7 +37,7 @@ $('.admintr').live('click', function(){
 	'type'=>'striped bordered condensed',
 	'id' => 'admins-grid',
 	//'template' => '{items} {pager}',
-	'summaryText' => 'Показано с {start} по {end} админов из {count}. Страница {page} из {pages}',
+	'summaryText' => 'Displayed from {start} to {end} admins from {count}. Page {page} of {pages}',
 	'enableSorting' => false,
 	'rowHtmlOptionsExpression'=>'array(
 		"id" => "admin_$data->id",
@@ -59,7 +59,7 @@ $('.admintr').live('click', function(){
 		array(
 			'name' => 'icq',
 			'type' => 'raw',
-			'value' => '$data->icq != 0 ? CHtml::encode($data->icq) : "<i>Не задан</i>"',
+			'value' => '$data->icq != 0 ? CHtml::encode($data->icq) : "<i>Not set</i>"',
 			'htmlOptions' => array(
 				'style' => 'width: 100px;'
 			)
@@ -82,7 +82,7 @@ $('.admintr').live('click', function(){
 		array(
 			'name' => 'expired',
 			'type' => 'raw',
-			'value' => '$data->expired == 0 ? "<i>Никогда</i>" : date("d.m.Y - H:i:s",$data->expired)',
+			'value' => '$data->expired == 0 ? "<i>Never</i>" : date("d.m.Y - H:i:s",$data->expired)',
 			'htmlOptions' => array(
 				'style' => 'width: 170px; text-align: center'
 			)
@@ -97,23 +97,23 @@ $('.admintr').live('click', function(){
 		)
 )); ?>
 <div class="modal-header">
-    <a class="close" data-dismiss="modal" rel="tooltip" data-placement="left" title="Закрыть">&times;</a>
-    <h4>Детали админа</h4>
+    <a class="close" data-dismiss="modal" rel="tooltip" data-placement="left" title="Close">&times;</a>
+    <h4>Admin details</h4>
 </div>
 <div class="modal-body" style="min-height: 450px">
-	<h3>Инфо</h3>
+	<h3>Info</h3>
 	<div id="adminInfo"></div>
 	<hr>
 	<h3>STEAM</h3>
 	<div id="adminSteam"></div>
 	<hr>
-	<h3>Админка на серверах</h3>
+	<h3>Admin on servers</h3>
 	<div id="adminServers"></div>
 	<hr>
 </div>
 <div class="modal-footer">
     <?php $this->widget('bootstrap.widgets.TbButton', array(
-        'label'=>'Закрыть',
+        'label'=>'Close',
         'url'=>'#',
         'htmlOptions'=>array(
 			'data-dismiss'=>'modal',
@@ -124,7 +124,7 @@ $('.admintr').live('click', function(){
 
 <div style="width: 200px; margin: 0 auto; text-align: center">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(
-        'label'=>'Информация доступа',
+        'label'=>'Access information',
         'url'=>'#',
         'htmlOptions'=>array(
 			'onclick'=>'$("#info_access").slideToggle("slow"); return false;',
@@ -134,7 +134,7 @@ $('.admintr').live('click', function(){
 
 <div id="info_access" class="row-fluid" style="display: none">
 	<div class="span6">
-		<h3 class="muted">Права доступа</h3>
+		<h3 class="muted">Access rights</h3>
 		<?php
 		foreach(Amxadmins::getFlags(TRUE) as $flag => $desc):
 			echo $flag . ' - ' . $desc . '<br />';
@@ -142,12 +142,12 @@ $('.admintr').live('click', function(){
 		?>
 	</div>
 	<div class="span6">
-		<h3 class="muted">Флаги доступа</h3>
-		a - Кикать игрока при вводе некорректного пароля<br />
-		b - Тег клана<br />
-		c - Для SteamID<br />
-		d - Для IP<br />
-		e - Пароль не требуется (важен только SteamID либо IP )<br />
-		k - Имя или тег (С УчёТом РеГистРа!).
+		<h3 class="muted">Access flags</h3>
+		a - Kick player when entering an incorrect password<br />
+		b - Clan tag<br />
+		c - For SteamID<br />
+		d - For IP<br />
+		e - No password is required (only SteamID or IP is important)<br />
+		k - Name or tag (TAKING INTO ACCOUNT!).
 	</div>
 </div>
