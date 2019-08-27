@@ -1,6 +1,6 @@
 <?php
 /**
- * Вьюшка добавления админа серверов
+ * View Adding Admin Servers
  */
 
 /**
@@ -12,20 +12,20 @@
  * @license http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru  «Attribution-NonCommercial-ShareAlike»
  */
 
-$this->pageTitle = Yii::app()->name . ' :: Админцентр - Добавление AmxModX админа';
+$this->pageTitle = Yii::app()->name . ' :: Admin Center - Adding AmxModX Admin';
 $this->breadcrumbs = array(
-	'Админцентр' => array('/admin/index'),
-	'AmxModX админы' => array('admin'),
-	'Добавление AmxModX админа'
+	'Admin Center' => array('/admin/index'),
+	'AmxModX Admins' => array('admin'),
+	'Adding AmxModX Admin'
 );
 
 $this->renderPartial('/admin/mainmenu', array('active' =>'server', 'activebtn' => 'servamxadmins'));
 
 $this->menu=array(
-	array('label'=>'Управление админами', 'url'=>array('admin')),
+	array('label'=>'Admin Management', 'url'=>array('admin')),
 );
 ?>
 
-<h2>Добавить AmxModX админа</h2>
+<h2>Add AmxModX Admin</h2>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model, 'webadmins' => new Webadmins)); ?>
