@@ -1,6 +1,6 @@
 <?php
 /**
- * Вьюшка назначения админов
+ * Admin appointment view
  */
 
 /**
@@ -12,15 +12,15 @@
  * @license http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ru  «Attribution-NonCommercial-ShareAlike»
  */
 
-$this->pageTitle = Yii::app()->name .' :: Админцентр - Администраторы серверов';
+$this->pageTitle = Yii::app()->name .' :: Admin Center - Server Administrators';
 $this->breadcrumbs=array(
-	'Админцентр' => array('/admin/index'),
-	'Администраторы серверов',
+	'Admin Center' => array('/admin/index'),
+	'Server Administrators',
 );
 
 $this->renderPartial('/admin/mainmenu', array('active' =>'server', 'activebtn' => 'servadmassign'));
 ?>
-<h2>Управление админами серверов</h2>
+<h2>Manage Server Admins</h2>
 <?php
 
 Yii::app()->clientScript->registerScript('serverview', '
@@ -58,8 +58,8 @@ function checkaccess(hash)
 <table class="table table-bordered table-condensed table-striped">
 	<thead>
 		<tr>
-			<th>Название</th>
-			<th>Адрес</th>
+			<th>Title</th>
+			<th>Address</th>
 			<th style="width: 50px">Версия</th>
 		</tr>
 	</thead>
@@ -84,7 +84,7 @@ function checkaccess(hash)
 
 <div class="modal-header">
     <a class="close" data-dismiss="modal"  data-placement="bottom">&times;</a>
-    <h4>Выберите админов</h4>
+    <h4>Choose Admins</h4>
 </div>
 
 <div class="modal-body">
@@ -92,7 +92,7 @@ function checkaccess(hash)
 
 <div class="modal-footer">
     <?php $this->widget('bootstrap.widgets.TbButton', array(
-        'label'=>'Закрыть',
+        'label'=>'Close',
         'url'=>'#',
         'htmlOptions'=>array('data-dismiss'=>'modal'),
     )); ?>
