@@ -52,7 +52,7 @@ return array(
 	'basePath'=>ROOTPATH . DIRECTORY_SEPARATOR . 'protected',
 	'name'=>'СS:Bans 1.3',
 	'sourceLanguage' => 'ru',
-	'language'=>'ru',
+	'language'=>'en',
 
 	// Предзагружаемые компоненты
 	'preload'=>array(
