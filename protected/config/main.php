@@ -1,6 +1,6 @@
 <?php
 /**
- * Конфигурация приложения
+ * Application configuration
  */
 
 /**
@@ -30,10 +30,10 @@ class conf
 }
 $config = new conf;
 
-// Подключаем конфиг старого AmxBans
+// We connect a config of old AmxBans
 require_once ROOTPATH . '/include/db.config.inc.php';
 
-// Подключаем bootstrap
+// Connect bootstrap
 Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/bootstrap');
 
 $dirs = scandir(dirname(__FILE__).'/../modules');
@@ -47,20 +47,20 @@ foreach ($dirs as $name){
 
 define('MODULES_MATCHES', implode('|', array_keys($modules)));
 
-// Главные параметры приложения
+// Main application settings
 return array(
 	'basePath'=>ROOTPATH . DIRECTORY_SEPARATOR . 'protected',
 	'name'=>'СS:Bans 1.3',
-	'sourceLanguage' => 'ru',
+	'sourceLanguage' => 'en',
 	'language'=>'en',
 
-	// Предзагружаемые компоненты
+// Preloaded components
 	'preload'=>array(
 		'log',
 		'DConfig',
 		'Ip2Country',
 		),
-	// Автозагружаемые модели и компоненты
+// Startup Models and Components
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
@@ -74,25 +74,25 @@ return array(
 		
 	)),
 
-	// Компоненты приложения
+// Application components
 	'components'=>array(
-		// Бутстрап
+		// Bootstrap
 		'bootstrap'=>array(
 			'class'=>'bootstrap.components.Bootstrap',
 		),
-		// Компонент пользователей
+		// User component
 		'user'=>array(
-			// Аутентификация по куки
+			// Cookie authentication
 			'allowAutoLogin'=>true,
 		),
-		// Конфиг (из таблицы {{webconfig}})
+		// Config (from table {{webconfig}})
 		'config'=>array(
 			'class' => 'DConfig'
 		),
 		'IpToCountry'=>array(
 			'class' => 'Ip2Country'
 		),
-		// ЧПУ
+		// CNC
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'showScriptName'=>false,
@@ -113,11 +113,11 @@ return array(
 		),
 		
 		'format'=>array(
-			'booleanFormat'=>array('Нет', 'Да'),
+			'booleanFormat'=>array('No', 'Yes'),
 			'datetimeFormat'=>'d.m.Y H:i',
 		),
 
-		// Подключение к БД
+		// DB connection
 		'db'=>array(
 			'connectionString' => 'mysql:host='.$config->db_host.';dbname='.$config->db_db,
 			'emulatePrepare' => true,
@@ -132,11 +132,11 @@ return array(
 			//'class'=>'system.caching.CDummyCache',
 			'class'=>'system.caching.CFileCache',
 		),
-		// Обработка ошибок
+		// Error processing
 		'errorHandler'=>array(
 			'errorAction'=>'site/error',
 		),
-		// Системный лог
+		// System log
 		'log'=>array(
 			'class'=>'CLogRouter',
 			'routes'=>array(
@@ -144,7 +144,7 @@ return array(
 					'class'=>'CFileLogRoute',
 					'levels'=>'error, warning',
 				),
-				// Раскомментировать, если хотите, чтобы ошибки были выведены на страницах
+				// Uncomment if you want the errors to be displayed on the pages
 				//array(
 				//	'class'=>'CWebLogRoute',
 				//),
@@ -152,12 +152,12 @@ return array(
 		),
 	),
 
-	// Тема (темы лежат в themes)
+	// Theme (themes are in themes)
 	'theme'=>'default',
 
 	'homeUrl' => array('/site/index'),
 
-	// Дополнительные параметры (вызываются так: Yii::app()->params['adminEmail'])
+	// Additional parameters (called like this: Yii :: app () -> params ['adminEmail'])
 	'params'=>array(
 		'adminEmail'=>'webmaster@example.com',
 		'dbname' => $config->db_db,
